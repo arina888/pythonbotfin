@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import time
-#from background import keep_alive
+from background import keep_alive
 from aiogram.types import ParseMode
 from aiogram.dispatcher import FSMContext
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -2710,7 +2710,7 @@ async def main():
     await dp.start_polling()
 
 
-#keep_alive()
+keep_alive()
 if __name__ == '__main__':
     authorized_users = set()
     asyncio.run(main())

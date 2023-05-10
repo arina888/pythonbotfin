@@ -1,4 +1,4 @@
-import asyncio
+import asynюcio
 import logging
 import time
 #from background import keep_alive
@@ -103,7 +103,7 @@ async def process_password_input(message: types.Message, state: FSMContext):
     # Получаем введенный пользователем пароль
     password = message.text
     # Проверяем, соответствует ли введенный пароль ожидаемому
-    if password != "my_secret_password":
+    if password != "Лечу" and password != "лечу" and password != "ЛЕЧУ":
         # Выводим сообщение об ошибке и снова запрашиваем пароль
         await message.answer("Неправильный пароль. Попробуйте еще раз:")
         return
@@ -161,30 +161,35 @@ async def process_callback_menubutton(callback_query: types.CallbackQuery):
     logging.info({code})
     if code == 'menu_human_and_society':
         await bot.send_message(chat_id=user_id,
-                               text=text_human_and_society)
+                               text=text_human_and_society,
+                               reply_markup=keyboard_start)
         await ProfileStateGroup.human_and_society_state.set()
         # await bot.answer_callback_query(callback_query.id, text='Нажата первая кнопка')
 
     elif code == 'menu_social_relations':
         await bot.send_message(chat_id=user_id,
-                               text=text_social_relations)
+                               text=text_social_relations,
+                               reply_markup=keyboard_start)
         await ProfileStateGroup.social_relations_state.set()
         # await bot.answer_callback_query(callback_query.id, text='Нажата вторая кнопка')
 
     elif code == 'menu_economy':
         await bot.send_message(chat_id=user_id,
-                               text=text_economy)
+                               text=text_economy,
+                               reply_markup=keyboard_start)
         await ProfileStateGroup.economy_state.set()
         # await bot.answer_callback_query(callback_query.id, text='Нажата третья кнопка')
 
     elif code == 'menu_policy':
         await bot.send_message(chat_id=user_id,
-                               text=text_policy)
+                               text=text_policy,
+                               reply_markup=keyboard_start)
         await ProfileStateGroup.policy_state.set()
         # await bot.answer_callback_query(callback_query.id, text='Нажата 4 кнопка')
     elif code == 'menu_right':
         await bot.send_message(chat_id=user_id,
-                               text=text_right)
+                               text=text_right,
+                               reply_markup=keyboard_start)
         await ProfileStateGroup.right_state.set()
         # await bot.answer_callback_query(callback_query.id, text='Нажата 5 кнопка')
     else:
@@ -195,12 +200,14 @@ async def process_callback_menubutton(callback_query: types.CallbackQuery):
 
 @dp.message_handler(commands=['Техподдержка'], state='*')
 async def techSupport(message: types.Message):
-    await message.answer(f"{support_text}")
+    await message.answer(f"{support_text}",
+                               reply_markup=keyboard_start)
 
 
-@dp.message_handler(commands=['Как_использовать'], state='*')
+@dp.message_handler(commands=['Использование'], state='*')
 async def howToUse(message: types.Message):
-    await message.answer(f"{howtouse_text}")
+    await message.answer(f"{howtouse_text}",
+                         reply_markup=keyboard_start)
 
 
 @dp.message_handler(state=ProfileStateGroup.right_state)

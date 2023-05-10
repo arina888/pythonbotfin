@@ -84,7 +84,7 @@ class AuthStates(StatesGroup):
 
 async def start_handler(message: types.Message):
     # Запрашиваем пароль при старте бота
-    await message.answer("Введите пароль:")
+    await message.answer("Введите пароль:\n(спроси его у своего персонального менеджера)")
     # Устанавливаем состояние ожидания ввода пароля
     await AuthStates.waiting_for_password.set()
 

@@ -94,7 +94,7 @@ start_button = [
         # types.KeyboardButton(text='/hello'),
         types.KeyboardButton(text='/Меню'),
         types.KeyboardButton(text='/Техподдержка'),
-        types.KeyboardButton(text='/Как_использовать')
+        types.KeyboardButton(text='/Использование')
     ],
 ]
 keyboard_start = types.ReplyKeyboardMarkup(keyboard=start_button, resize_keyboard=True)

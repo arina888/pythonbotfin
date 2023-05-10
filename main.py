@@ -97,7 +97,7 @@ start_button = [
         types.KeyboardButton(text='/Как_использовать')
     ],
 ]
-
+keyboard_start = types.ReplyKeyboardMarkup(keyboard=start_button, resize_keyboard=True)
 
 async def process_password_input(message: types.Message, state: FSMContext):
     # Получаем введенный пользователем пароль

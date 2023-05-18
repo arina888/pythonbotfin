@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import time
-#from background import keep_alive
+from background import keep_alive
 from aiogram.types import ParseMode
 from aiogram.dispatcher import FSMContext
 from aiogram.contrib.fsm_storage.memory import MemoryStorage

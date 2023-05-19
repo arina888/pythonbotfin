@@ -2386,7 +2386,7 @@ async def social_relations(message: types.Message):
     user_full_name = message.from_user.full_name
     logging.info(f'{user_id3} {user_full_name} {time.asctime()} {message_name}')
     if message_name == '1':
-        await message.reply(text='Конституционные принципы (основы) национальной политики в Российской Федерации'
+        await message.reply(text='Конституционные принципы (основы) национальной политики в Российской Федерации.'
                                  '\n'
                                  '\n1. Основные направления национальной политики РФ:'
                                  '\nа) совершенствование национально-государственного устройства наций и народностей РФ;'
